@@ -1,0 +1,16 @@
+---
+- name: Configure Apache
+  hosts: webservers
+  become: true
+
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.dnf:
+        name: nginx
+        state: present
+
+    - name: Start Nginx
+      ansible.builtin.systemd:
+        name: nginx
+        state: started
+        enabled: true
