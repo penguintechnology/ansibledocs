@@ -1,5 +1,5 @@
 ---
-- name: Configure Apache
+- name: Configure Nginx
   hosts: webservers
   become: true
 
