@@ -4,10 +4,18 @@
   become: true
 
   tasks:
-    - name: Install Nginx
+    - name: Install Nginx on Ubunt/Debian systems
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: true
+      when: ansible_os_family == "Debian"
+
+    - name: Install Nginx on RedHat systems
       ansible.builtin.dnf:
         name: nginx
         state: present
+      when: ansible_os_family == "RedHat"
 
     - name: Start Nginx
       ansible.builtin.systemd:
