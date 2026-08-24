@@ -61,7 +61,8 @@
         state: absent
       notify: Reload Nginx
 
-   handlers:
+  handlers:
+
     - name: Reload Nginx
       ansible.builtin.service:
         name: nginx
