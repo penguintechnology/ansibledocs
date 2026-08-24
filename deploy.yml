@@ -22,3 +22,19 @@
         name: nginx
         state: started
         enabled: true
+
+    - name: Create website directory
+      ansible.builtin.file:
+        path: /var/www/myapp
+        state: directory
+        owner: www-data
+        group: www-data
+        mode: "0755"
+
+    - name: Create index page
+      ansible.builtin.copy:
+        content: "Hello from Ansible!"
+        dest: /var/www/myapp/index.html
+        owner: www-data
+        group: www-data
+        mode: "0644"
