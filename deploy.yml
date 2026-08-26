@@ -2,7 +2,7 @@
 - name: Configure Nginx
   hosts: webservers
   become: true
-  gather_facts: false
+  #gather_facts: false
 
   tasks:
     - name: Install Nginx on Ubunt/Debian systems
