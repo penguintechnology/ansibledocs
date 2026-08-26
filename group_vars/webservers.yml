@@ -4,5 +4,5 @@ web_root: /var/www/myapp
 enable_ssl: false
 
 [webservers]
-web01
-web02
+web01 ansible_host=172.17.0.1
+web02 ansible_host=168.220.234.228
