@@ -25,7 +25,7 @@
 
     - name: Create website directory
       ansible.builtin.file:
-        path: /var/www/myapp
+        path: "{{ web_root }}"
         state: directory
         owner: www-data
         group: www-data
@@ -34,7 +34,7 @@
     - name: Create index page
       ansible.builtin.copy:
         content: "Hello from Ansible!"
-        dest: /var/www/myapp/index.html
+        dest: "{{ web_root }}"/index.html
         owner: www-data
         group: www-data
         mode: "0644"
